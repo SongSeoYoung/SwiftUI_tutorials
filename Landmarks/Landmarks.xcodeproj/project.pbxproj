@@ -55,12 +55,12 @@
 		A257FEBC2948B11C00CB99A9 /* Landmarks */ = {
 			isa = PBXGroup;
 			children = (
+				A257FECB2948CA4F00CB99A9 /* CircleImage.swift */,
+				A257FECD2948D66F00CB99A9 /* MapView.swift */,
 				A257FEBD2948B11C00CB99A9 /* LandmarksApp.swift */,
 				A257FEBF2948B11C00CB99A9 /* ContentView.swift */,
 				A257FEC12948B11E00CB99A9 /* Assets.xcassets */,
 				A257FEC32948B11E00CB99A9 /* Preview Content */,
-				A257FECB2948CA4F00CB99A9 /* CircleImage.swift */,
-				A257FECD2948D66F00CB99A9 /* MapView.swift */,
 			);
 			path = Landmarks;
 			sourceTree = "<group>";
