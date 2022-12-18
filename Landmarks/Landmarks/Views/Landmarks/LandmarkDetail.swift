@@ -8,7 +8,12 @@
 import SwiftUI
 
 struct LandmarkDetail: View {
+    @EnvironmentObject var modelData: ModelData
     var landmark: Landmark
+    
+    var landmarkIndex: Int {
+        modelData.landmarks.firstIndex(where: { $0.id == landmark.id })!
+    }
     
     var body: some View {
         ScrollView {
@@ -19,15 +24,17 @@ struct LandmarkDetail: View {
             CircleImage(image: landmark.image)
                 .offset(y: -130)
                 .padding(.bottom, -130)
-            
             VStack(alignment: .leading) {
-                Text("Turtle Rock")
-                    .font(.title)
+                HStack {
+                    Text(landmark.name)
+                        .font(.title)
+                    FavoriteButton(isSet: $modelData.landmarks[landmarkIndex].isFavorite)
+                }
                 
                 HStack {
-                    Text("Joshua Tree National Park")
+                    Text(landmark.park)
                     Spacer()
-                    Text("California")
+                    Text(landmark.state)
                 }
                 .font(.subheadline)
                 .foregroundColor(.secondary)
@@ -46,8 +53,10 @@ struct LandmarkDetail: View {
 }
 
 struct LandmarkDetail_Previews: PreviewProvider {
+    static let modelData = ModelData()
+    
     static var previews: some View {
-        LandmarkDetail(landmark: landmarks[1])
+        LandmarkDetail(landmark: modelData.landmarks[1])
             .previewDevice("iPhone 13 Pro Max")
     }
 }
